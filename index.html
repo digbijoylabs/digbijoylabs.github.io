@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Digbijoy Labs — Open Engineering Workbenches &amp; Technical Monographs</title>
+  <meta name="description" content="Digbijoy Labs Publications — Open-access interactive engineering workbenches, cognitive labs, CERN Zenodo archives, Wikidata entities, and OPDS/RSS feeds." />
+  <link rel="canonical" href="https://digbijoylabs.com/" />
+  <link rel="alternate" type="application/atom+xml" title="Digbijoy Labs RSS Feed" href="https://digbijoylabs.com/feed.xml" />
+  <link rel="alternate" type="application/atom+xml;profile=opds-catalog" title="Digbijoy Labs OPDS 1.2 Catalog" href="https://digbijoylabs.com/opds.xml" />
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f7f8fa;
+      --surface: #ffffff;
+      --surface-alt: #eef2f7;
+      --text: #111827;
+      --muted: #4b5563;
+      --border: #d1d5db;
+      --accent: #1d4ed8;
+      --accent-soft: #dbeafe;
+      --accent-text: #1e3a8a;
+      --shadow: 0 2px 10px rgba(17, 24, 39, 0.06);
+    }
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #0b1120;
+      --surface: #111827;
+      --surface-alt: #1e293b;
+      --text: #f3f4f6;
+      --muted: #9ca3af;
+      --border: #334155;
+      --accent: #60a5fa;
+      --accent-soft: #1e3a8a;
+      --accent-text: #dbeafe;
+      --shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    }
+    html[data-theme="circadian"] {
+      color-scheme: light;
+      --bg: #fbf6ec;
+      --surface: #fffdf7;
+      --surface-alt: #f3e8d2;
+      --text: #2c2219;
+      --muted: #6b5844;
+      --border: #dfd0b4;
+      --accent: #9a3412;
+      --accent-soft: #ffedd5;
+      --accent-text: #7c2d12;
+      --shadow: 0 2px 10px rgba(68, 44, 18, 0.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover, a:focus-visible { text-decoration: underline; }
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+    }
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2rem;
+    }
+    .brand h1 {
+      margin: 0 0 0.4rem;
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
+      line-height: 1.2;
+    }
+    .brand p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 66ch;
+    }
+    .theme-switcher {
+      display: inline-flex;
+      gap: 0.4rem;
+      background: var(--surface-alt);
+      padding: 0.3rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+    }
+    .theme-btn {
+      appearance: none;
+      border: 0;
+      background: transparent;
+      color: var(--text);
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .theme-btn[aria-pressed="true"] {
+      background: var(--accent);
+      color: #ffffff;
+    }
+    html[data-theme="dark"] .theme-btn[aria-pressed="true"] {
+      color: #0b1120;
+    }
+    section { margin-bottom: 2.25rem; }
+    h2 {
+      font-size: 1.25rem;
+      margin: 0 0 1rem;
+      letter-spacing: -0.01em;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.15rem 1.2rem;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+    .badge {
+      display: inline-block;
+      align-self: flex-start;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-text);
+    }
+    .card h3 { margin: 0; font-size: 1.08rem; }
+    .card p { margin: 0; color: var(--muted); font-size: 0.94rem; }
+    .links {
+      margin-top: auto;
+      padding-top: 0.45rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 0.9rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+    footer {
+      border-top: 1px solid var(--border);
+      padding-top: 1.25rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <h1>Digbijoy Labs — Open Engineering Workbenches</h1>
+        <p>Independent technology, media, and systems-engineering publishing group (<strong>Digbijoy Labs Publications</strong>). Zero-server interactive labs, technical monographs, and open scholarly records.</p>
+      </div>
+      <div class="theme-switcher" role="group" aria-label="Color theme selector">
+        <button type="button" class="theme-btn" data-theme-choice="light" aria-pressed="false">Light</button>
+        <button type="button" class="theme-btn" data-theme-choice="dark" aria-pressed="false">Dark</button>
+        <button type="button" class="theme-btn" data-theme-choice="circadian" aria-pressed="false">Circadian</button>
+      </div>
+    </header>
+
+    <main>
+      <section aria-labelledby="hubs-heading">
+        <h2 id="hubs-heading">Canonical Hub, Global Editions &amp; Feeds</h2>
+        <div class="grid">
+          <article class="card">
+            <span class="badge">Canonical Home</span>
+            <h3>Digbijoy Labs Portal</h3>
+            <p>Primary engineering portal, technical monograph overviews, and CC BY 4.0 university seminar curriculum.</p>
+            <div class="links">
+              <a href="https://digbijoylabs.com/">Canonical Home</a>
+              <a href="https://digbijoylabs.com/curriculum/">University Curriculum</a>
+              <a href="https://github.com/digbijoylabs">GitHub Profile</a>
+            </div>
+          </article>
+          <article class="card">
+            <span class="badge">13 Countries · 10 Languages</span>
+            <h3>Worldwide Storefronts &amp; Catalogue</h3>
+            <p>Localized regional editions across 13 storefronts and 10 languages for global engineering teams and libraries.</p>
+            <div class="links">
+              <a href="https://digbijoylabs.com/global/">Global Hub</a>
+              <a href="https://digbijoylabs.com/books/the-iron-silicon-bridge/">Iron–Silicon Bridge</a>
+              <a href="https://digbijoylabs.com/books/beyond-the-prompt/">Beyond the Prompt</a>
+              <a href="https://digbijoylabs.com/books/the-sovereign-illusion/">Sovereign Illusion</a>
+            </div>
+          </article>
+          <article class="card">
+            <span class="badge">Machine-Readable Feeds</span>
+            <h3>OPDS 1.2 &amp; RSS Syndication</h3>
+            <p>Standardized digital library catalog and syndication feeds for readers, aggregators, and institutional repositories.</p>
+            <div class="links">
+              <a href="https://digbijoylabs.com/opds.xml">OPDS 1.2 Catalog (opds.xml)</a>
+              <a href="https://digbijoylabs.com/feed.xml">RSS / Atom Feed (feed.xml)</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="workbenches-heading">
+        <h2 id="workbenches-heading">Live Interactive Workbenches &amp; Cognitive Labs</h2>
+        <div class="grid">
+          <article class="card">
+            <span class="badge">GitHub Pages Workbench #001</span>
+            <h3>The Iron–Silicon Bridge (Jay Thorne)</h3>
+            <p>Interactive COBOL <code>COMP-3</code> packed-decimal hex decoder, 4HRA OIDC-to-RACF airlock lab, CICS/Db2 syncpoint &amp; Z3 equivalence blueprints.</p>
+            <div class="links">
+              <a href="/iron-silicon-bridge/">Launch Workbench</a>
+              <a href="https://github.com/digbijoylabs/iron-silicon-bridge">Source Repo</a>
+              <a href="https://digbijoylabs.com/books/the-iron-silicon-bridge/">Monograph Overview</a>
+            </div>
+          </article>
+          <article class="card">
+            <span class="badge">GitHub Pages Workbench #002</span>
+            <h3>Beyond the Prompt (Jay Thorne)</h3>
+            <p>Autonomous AI runtime harnesses, context-budget enforcement, bounded statecharts, and deterministic agent kernels.</p>
+            <div class="links">
+              <a href="/beyond-the-prompt/">Launch Workbench</a>
+              <a href="https://github.com/digbijoylabs/beyond-the-prompt">Source Repo</a>
+              <a href="https://digbijoylabs.com/books/beyond-the-prompt/">Monograph Overview</a>
+            </div>
+          </article>
+          <article class="card">
+            <span class="badge">GitHub Pages Workbench #003</span>
+            <h3>The Sovereign Illusion (Victor Brooks)</h3>
+            <p>Global AI supply-chain chokepoint simulator covering EUV lithography, CoWoS/HBM3E packaging, and compute diplomacy.</p>
+            <div class="links">
+              <a href="/the-sovereign-illusion/">Launch Simulator</a>
+              <a href="https://github.com/digbijoylabs/the-sovereign-illusion">Source Repo</a>
+              <a href="https://digbijoylabs.com/books/the-sovereign-illusion/">Monograph Overview</a>
+            </div>
+          </article>
+          <article class="card">
+            <span class="badge">Cognitive Lab</span>
+            <h3>Attention &amp; Shrinkage Sandbox</h3>
+            <p>Interactive lab modeling context-window decay, attention dilution, and multi-turn degradation in autonomous systems.</p>
+            <div class="links">
+              <a href="https://digbijoylabs.com/interactive/attention-sandbox/">Open Attention Sandbox</a>
+            </div>
+          </article>
+          <article class="card">
+            <span class="badge">Cognitive Lab</span>
+            <h3>Observer Latency Lab</h3>
+            <p>Interactive systems lab exploring observation delay, control-loop stability, and bounded decision horizons.</p>
+            <div class="links">
+              <a href="https://digbijoylabs.com/interactive/observer-latency/">Open Observer Latency Lab</a>
+            </div>
+          </article>
+          <article class="card">
+            <span class="badge">In Production · #004</span>
+            <h3>The Anatomy of a Payment (Jay Thorne)</h3>
+            <p>Payment acquiring, ISO 8583 / ISO 20022 messaging, instant rails (UPI, Pix, SEPA Instant, FedNow), and double-entry ledger invariants.</p>
+            <div class="links">
+              <a href="https://github.com/digbijoylabs/anatomy-of-a-payment">Preview Repo</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="archives-heading">
+        <h2 id="archives-heading">CERN Zenodo DOIs, Open Library &amp; Wikidata Records</h2>
+        <div class="grid">
+          <article class="card">
+            <span class="badge">CERN Zenodo Open Access</span>
+            <h3>Permanent Research DOIs</h3>
+            <p>Archival companion datasets, formal specifications, and reference blueprints preserved at CERN Zenodo.</p>
+            <div class="links">
+              <a href="https://doi.org/10.5281/zenodo.24243905">Iron–Silicon Bridge (10.5281/zenodo.24243905)</a>
+              <a href="https://doi.org/10.5281/zenodo.24100423">Beyond the Prompt (10.5281/zenodo.24100423)</a>
+              <a href="https://doi.org/10.5281/zenodo.24100427">Sovereign Illusion (10.5281/zenodo.24100427)</a>
+            </div>
+          </article>
+          <article class="card">
+            <span class="badge">Open Library</span>
+            <h3>Open Library Works &amp; Editions</h3>
+            <p>Public bibliographic records for Digbijoy Labs Publications monographs in the Internet Archive Open Library.</p>
+            <div class="links">
+              <a href="https://openlibrary.org/works/OL46360195W">The Iron–Silicon Bridge (OL46360195W)</a>
+              <a href="https://openlibrary.org/books/OL62924374M">The Sovereign Illusion (OL62924374M)</a>
+              <a href="https://openlibrary.org/search?q=Digbijoy+Labs+Publications">Search All Works</a>
+            </div>
+          </article>
+          <article class="card">
+            <span class="badge">Wikidata Knowledge Graph</span>
+            <h3>Structured Entity Identifiers</h3>
+            <p>Linked open-data identifiers for Digbijoy Labs and its published technical monographs.</p>
+            <div class="links">
+              <a href="https://www.wikidata.org/wiki/Q142203051">Digbijoy Labs (Q142203051)</a>
+              <a href="https://www.wikidata.org/wiki/Q142203096">Iron–Silicon Bridge (Q142203096)</a>
+              <a href="https://www.wikidata.org/wiki/Q142203106">Beyond the Prompt (Q142203106)</a>
+              <a href="https://www.wikidata.org/wiki/Q142203213">Sovereign Illusion (Q142203213)</a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>Digbijoy Labs · Digbijoy Labs Publications · <a href="mailto:contact@digbijoylabs.com">contact@digbijoylabs.com</a></span>
+      <span>
+        <a href="https://www.youtube.com/@TheNeuralBlueprintLab">The Neural Blueprint</a> ·
+        <a href="https://www.youtube.com/@TheMindBlueprintLab">The Mind Blueprint</a>
+      </span>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var buttons = document.querySelectorAll('[data-theme-choice]');
+      var storageKey = 'digbijoy-theme';
+
+      function getDefaultTheme() {
+        return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+
+      function applyTheme(theme, persist) {
+        root.setAttribute('data-theme', theme);
+        buttons.forEach(function (btn) {
+          btn.setAttribute('aria-pressed', btn.getAttribute('data-theme-choice') === theme ? 'true' : 'false');
+        });
+        if (persist) {
+          try { localStorage.setItem(storageKey, theme); } catch (e) {}
+        }
+      }
+
+      var saved = null;
+      try { saved = localStorage.getItem(storageKey); } catch (e) {}
+      applyTheme(saved || getDefaultTheme(), false);
+
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          applyTheme(btn.getAttribute('data-theme-choice'), true);
+        });
+      });
+
+      if (window.matchMedia) {
+        var mq = window.matchMedia('(prefers-color-scheme: dark)');
+        if (mq.addEventListener) {
+          mq.addEventListener('change', function (e) {
+            try { if (localStorage.getItem(storageKey)) return; } catch (err) {}
+            applyTheme(e.matches ? 'dark' : 'light', false);
+          });
+        }
+      }
+    })();
+  </script>
+</body>
+</html>
